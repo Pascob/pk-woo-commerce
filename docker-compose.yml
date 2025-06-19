@@ -1,3 +1,4 @@
+name: wordpress-docker-compose
 services:
   wordpress:
     build: .
@@ -6,7 +7,7 @@ services:
     ports:
       - 8000:80
     environment:
-      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_HOST: db:3306
       WORDPRESS_DB_USER: ${DB_USERNAME}
       WORDPRESS_DB_PASSWORD: ${DB_PASSWORD}
       WORDPRESS_DB_NAME: ${DB_NAME}
@@ -20,6 +21,6 @@ services:
       MYSQL_DATABASE: ${DB_NAME}
       MYSQL_USER: ${DB_USERNAME}
       MYSQL_PASSWORD: ${DB_PASSWORD}
-      # MYSQL_RANDOM_ROOT_PASSWORD: '1'
+      MYSQL_RANDOM_ROOT_PASSWORD: '1'
     volumes:
       - ./db_data/:/var/lib/mysql
